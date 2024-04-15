@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal; 
+}
+
+body {
+    background: linear-gradient(to bottom,#09DBBA,#09DB72);
+    height: 100vh;
+}
+
+.primertitulo {
+color: #ffffff;
+padding: 30px;
+text-align: center;
+}
+
+.agregartarea {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.agregartarea input {
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.agregartarea ::placeholder {
+    color: #37DB09;
+}
+
+
+.agregartarea i {
+    font-size: 50px;
+    color: #09db72d3;
+}
+
+.agregartarea i:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.contenedor {
+    width: 800px;
+    max-width: 70%;
+    height: 600px;
+    margin: 0 auto;
+    align-content: center;
+    padding: 50px;
+}
+
+.tareasquehacer {
+    padding-top: 40px;
+    max-height: 600px;
+    overflow: auto;
+}
+
+.tareasquehacer h2 {
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.tareasquehacer li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #4f8b26;
+    border-radius: 10px;
+    margin-bottom: 20px;
+} 
+
+.tareasquehacer ul {
+    padding: 20px;
+}
+
+.tareasquehacer >ul >li >i {
+    color: #09DB72;
+    font-size: 30px;
+}
+
+.tareasquehacer >ul >li >h4 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+.tareasquehacer i:hover {
+    cursor: pointer;
+    color: #09DBBA;
+}
+
+.tareaterminada {
+    color: #09DBBA;
+}
+
+
+
