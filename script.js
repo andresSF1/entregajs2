@@ -62,3 +62,58 @@ function eliminarTarea(event) {
 
 
 listaTareas.addEventListener("click", eliminarTarea);
+
+const API_KEY = 'cc94b09c908a4217a7c202211240605'; // Tu clave de API de WeatherAPI
+
+function obtenerClima(latitud, longitud) {
+  return new Promise((resolve, reject) => {
+    const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${latitud},${longitud}&lang=es`;
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al obtener el clima');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const temperatura = data.current.temp_c;
+        const descripcion = data.current.condition.text;
+        const iconoURL = 'https:' + data.current.condition.icon;
+
+        const clima = {
+          temperatura: temperatura,
+          descripcion: descripcion,
+          iconoURL: iconoURL
+        };
+
+        resolve(clima);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+async function actualizarClima() {
+  try {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async position => {
+        const latitud = position.coords.latitude;
+        const longitud = position.coords.longitude;
+        const clima = await obtenerClima(latitud, longitud);
+        console.log(clima);
+        document.getElementById('temperatura').textContent = `Temperatura: ${clima.temperatura}°C`;
+        document.getElementById('descripcion').textContent = `Descripción: ${clima.descripcion}`;
+        document.getElementById('icono').src = clima.iconoURL;
+      });
+    } else {
+      console.error('Geolocalización no está disponible en este navegador');
+    }
+  } catch (error) {
+    console.error('Error al obtener el clima:', error);
+  }
+}
+
+actualizarClima();
+

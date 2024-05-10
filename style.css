@@ -100,5 +100,12 @@ text-align: center;
     color: #09DBBA;
 }
 
-
+.clima {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    max-width: 350px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
 
